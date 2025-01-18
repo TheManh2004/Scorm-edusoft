@@ -1,0 +1,39 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "title": "Khái niệm kỹ thuật cần biết",
+        "lessons": [
+          {
+            "id": 1,
+            "title": "Mô hình Client - Server là gì?",
+            "video": {
+              "url": "https://www.youtube.com/embed/M62l1xA5Eu8",
+              "description": "Mô hình truyền tải dữ liệu | Link tham khảo: [Fullstack.edu.vn](https://fullstack.edu.vn)"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 1",
+                "url": "documents/baihoc1.pdf"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Domain là gì? Tên miền là gì?",
+            "video": {
+              "url": "https://www.youtube.com/embed/abc",
+              "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 2",
+                "url": "documents/baihoc2.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

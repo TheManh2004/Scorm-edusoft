@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCORM E-learning</title>
+  <link rel="stylesheet" href="./data/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Danh sách bài học</h2>
+      <ul id="course-list"></ul>
+    </aside>
+    <main class="content">
+      <div class="menu">
+        <button id="video-tab">Video</button>
+        <button id="material-tab">Tài liệu</button>
+      </div>
+      <div id="video-section">
+        <div id="loading-indicator" class="spinner" style="display: none;"></div>
+        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <div id="video-description"></div>
+      </div>
+      <div id="material-section" style="display: none;">
+        <ul id="material-list"></ul>
+      </div>
+    </main>
+  </div>
+  <script src="./data/components/script.js"></script>
+</body>
+</html>
