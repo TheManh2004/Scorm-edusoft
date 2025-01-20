@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCORM E-learning</title>
   <link rel="stylesheet" href="./data/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@4.19.4/dist/antd.min.css">
 </head>
 <body>
-  <div class="container">
+  <div class="flex w-full h-screen">
     <aside class="sidebar">
-      <h2>Danh sách bài học</h2>
+      <h2 class="px-4 py-2">Kiến Thức Nhập Môn IT</h2>
       <ul id="course-list"></ul>
     </aside>
-    
     <main class="content">
       <div class="menu">
         <button id="video-tab">Video</button>
         <button id="material-tab">Tài liệu</button>
+        <button>Bài tập</button>
       </div>
-      <div id="video-section">
+      <div id="video-section" >
         <div id="loading-indicator" class="spinner" style="display: none;"></div>
         <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
         <div id="video-description"></div>
@@ -28,6 +30,6 @@
       </div>
     </main>
   </div>
-  <script src="./data/components/script.js"></script>
+  <script type="module" src="./data/components/Main.js"></script>
 </body>
 </html>

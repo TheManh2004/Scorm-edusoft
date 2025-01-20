@@ -1,0 +1,87 @@
+{
+    "courses": [
+      {
+        "id": 1,
+        "title": "Khái niệm kỹ thuật cần biết",
+        "lessons": [
+          {
+            "id": 1,
+            "title": "Mô hình Client - Server là gì?",
+            "video": {
+              "url": "https://www.youtube.com/embed/M62l1xA5Eu8",
+              "description": "Mô hình truyền tải dữ liệu | Link tham khảo: [Fullstack.edu.vn](https://fullstack.edu.vn)"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 1",
+                "url": "documents/baihoc1.pdf"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "Domain là gì? Tên miền là gì?",
+            "video": {
+              "url": "https://www.youtube.com/embed/abc",
+              "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 2",
+                "url": "documents/baihoc2.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Môi trường, con người IT",
+        "lessons": [
+          {
+            "id": 1,
+            "title": "3. Mua áo F8 | Đăng ký học Offline",
+            "video": {
+              "url": "https://www.youtube.com/embed/M62l1xA5Eu8",
+              "description": "Mua áo"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 1",
+                "url": "documents/baihoc1.pdf"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "4. Học IT cần tố chất gì? Góc nhìn khác từ chuyên gia định hướng giáo dục",
+            "video": {
+              "url": "https://www.youtube.com/embed/abc",
+              "description": "Học IT"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 2",
+                "url": "documents/baihoc2.pdf"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "5. Học IT không cần gì? Góc nhìn khác từ chuyên gia định hướng giáo dục",
+            "video": {
+              "url": "https://www.youtube.com/embed/abc",
+              "description": "Học IT"
+            },
+            "materials": [
+              {
+                "name": "Tài liệu bài học 2",
+                "url": "documents/baihoc2.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
