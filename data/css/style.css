@@ -21,8 +21,9 @@ body {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   list-style: none;
-  padding: 0;
   cursor: pointer;
+  max-height: 500px;
+  overflow-y: auto;
 }
 .content {
   width: 80%;
@@ -83,19 +84,32 @@ body {
 }
 #course-list li {
   background-color: #e5e7eb;
-  padding: 5px;
+  padding-top: 13px;
+  
+  
+  position: relative;
+}
+#course-list li:hover {
+  background-color: #d3d3d3;
+}
+
+#course-list li ul{
+  padding: 0 !important;
+  
 }
 #course-list li ul li {
   list-style: none;
+  padding: 10px !important;
 }
 #course-list li ul li:hover {
-  background-color: #d7d7d7;
+  background-color: #d3e4ff;
   color: #003366;
 }
 #course-list li ul li.active {
   background-color: #d3e4ff;
   color: #2e6faf;
-  border-right: 2px solid;
+  border-right: 3px solid;
+
 }
 
 #video-section {

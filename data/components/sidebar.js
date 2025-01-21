@@ -18,7 +18,6 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
     courseTitle.textContent = course.title;
     courseTitle.style.fontWeight = 'bold';
 
-
     const lessonCount = document.createElement('span');
     lessonCount.textContent = `(${course.lessons.length} bài học)`;
     lessonCount.style.fontSize = '12px';
