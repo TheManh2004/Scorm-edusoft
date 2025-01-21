@@ -22,7 +22,7 @@ body {
   border-bottom: 1px solid #ccc;
   list-style: none;
   cursor: pointer;
-  max-height: 500px;
+  max-height: 700px;
   overflow-y: auto;
 }
 .content {
@@ -84,17 +84,19 @@ body {
 }
 #course-list li {
   background-color: #e5e7eb;
-  padding-top: 13px;
-  
+  padding-top: 15px;
+  padding-bottom: 15px; 
   
   position: relative;
 }
 #course-list li:hover {
-  background-color: #d3d3d3;
+  background-color: #dedede;
 }
 
 #course-list li ul{
-  padding: 0 !important;
+  
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   
 }
 #course-list li ul li {
