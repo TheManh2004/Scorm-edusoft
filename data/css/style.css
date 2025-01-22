@@ -1,7 +1,8 @@
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
+  /* font: inherit; */
   margin: 0;
   padding: 0;
 }
@@ -15,6 +16,7 @@ body {
 .sidebar h2 {
   font-size: 18px;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 #course-list {
@@ -102,6 +104,9 @@ body {
 #course-list li ul li {
   list-style: none;
   padding: 10px !important;
+  font: inherit;
+  vertical-align: baseline;
+  font-weight: 400;
 }
 #course-list li ul li:hover {
   background-color: #d3e4ff;
@@ -109,7 +114,7 @@ body {
 }
 #course-list li ul li.active {
   background-color: #d3e4ff;
-  color: #2e6faf;
+  color: #1c94a9 !important;
   border-right: 3px solid;
 
 }
