@@ -53,7 +53,7 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
         lessonItem.style.color = "#000";
       } else {
         lessonItem.style.pointerEvents = "none";
-        lessonItem.style.color = "#ccc";
+        lessonItem.style.color = "#6e6e6e";
       }
 
       if (selectedLessonKey === lessonKey) {
