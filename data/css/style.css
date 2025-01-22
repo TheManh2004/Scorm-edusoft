@@ -22,7 +22,7 @@ body {
   border-bottom: 1px solid #ccc;
   list-style: none;
   cursor: pointer;
-  max-height: 700px;
+  max-height: 600px;
   overflow-y: auto;
 }
 .content {
@@ -148,4 +148,8 @@ body {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+.lesson-item.disabled {
+  pointer-events: none;
+  color: #ccc;
 }
