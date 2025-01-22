@@ -5,14 +5,15 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
 
   const courseList = document.getElementById(courseListId);
   const selectedLessonKey = localStorage.getItem("selectedLessonKey");
-  const unlockedLessons = JSON.parse(localStorage.getItem("unlockedLessons") || "[]");
+  const unlockedLessons = JSON.parse(
+    localStorage.getItem("unlockedLessons") || "[]"
+  );
 
-  // Làm mới danh sách khóa học mỗi khi gọi lại
-  courseList.innerHTML = "";  // Xóa danh sách hiện tại để tái tạo lại
+  courseList.innerHTML = "";
 
   data.courses.forEach((course) => {
     const courseItem = document.createElement("li");
-    courseItem.dataset.courseId = course.id; // Thêm thuộc tính để xác định khóa học
+    courseItem.dataset.courseId = course.id;
 
     const arrow = document.createElement("span");
     arrow.textContent = "▶";
@@ -43,20 +44,18 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
     course.lessons.forEach((lesson) => {
       const lessonItem = document.createElement("li");
       lessonItem.textContent = lesson.title;
-      lessonItem.dataset.lessonId = lesson.id; // Thêm thuộc tính để xác định bài học
+      lessonItem.dataset.lessonId = lesson.id;
 
       const lessonKey = `${course.id}-${lesson.id}`;
 
-      // Kiểm tra bài học đã mở khóa hay chưa
       if (unlockedLessons.includes(lessonKey)) {
         lessonItem.style.pointerEvents = "auto";
         lessonItem.style.color = "#000";
       } else {
-        lessonItem.style.pointerEvents = "none"; // Vô hiệu hóa bài học chưa mở khóa
-        lessonItem.style.color = "#ccc"; // Đổi màu bài học chưa mở khóa
+        lessonItem.style.pointerEvents = "none";
+        lessonItem.style.color = "#ccc";
       }
 
-      // Nếu bài học được chọn, đánh dấu là active
       if (selectedLessonKey === lessonKey) {
         lessonItem.classList.add("active");
         lessonCallback(lesson);
@@ -72,9 +71,11 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
 
         localStorage.setItem("selectedLessonKey", lessonKey);
 
-        document.querySelectorAll(`#${courseListId} li ul li`).forEach((item) => {
-          item.classList.remove("active");
-        });
+        document
+          .querySelectorAll(`#${courseListId} li ul li`)
+          .forEach((item) => {
+            item.classList.remove("active");
+          });
 
         lessonItem.classList.add("active");
         lessonCallback(lesson);
@@ -110,20 +111,19 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
   });
 }
 
-function updateSidebarAfterUnlock(nextLessonKey, courseId) {
-  const courseListId = "course-list"; // Cập nhật với ID danh sách khóa học thực tế của bạn
+export function updateSidebarAfterUnlock(nextLessonKey, courseId) {
+  const courseListId = "course-list";
   const courseList = document.getElementById(courseListId);
-  
-  // Lấy tất cả các item trong sidebar
+
   const courseItems = courseList.querySelectorAll("li");
-  courseItems.forEach(courseItem => {
+  courseItems.forEach((courseItem) => {
     const lessons = courseItem.querySelectorAll("ul li");
-    lessons.forEach(lessonItem => {
-      const lessonKey = courseItem.dataset.courseId + "-" + lessonItem.dataset.lessonId;
+    lessons.forEach((lessonItem) => {
+      const lessonKey =
+        courseItem.dataset.courseId + "-" + lessonItem.dataset.lessonId;
       if (lessonKey === nextLessonKey) {
-        // Cập nhật lại trạng thái bài học
         lessonItem.style.pointerEvents = "auto";
-        lessonItem.style.color = "#000"; // Đổi màu bài học đã mở
+        lessonItem.style.color = "#000";
       }
     });
   });
