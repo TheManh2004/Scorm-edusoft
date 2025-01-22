@@ -1,10 +1,16 @@
-let player; 
-let startTime = 0; 
-let watchInterval; 
-let totalWatchTime = 0; 
+import { updateSidebarAfterUnlock } from './sidebar.js';
+let player;
+let startTime = 0;
+let watchInterval;
+let totalWatchTime = 0;
 
-
-export function loadLessonContent(lesson, videoFrameId, descriptionId, materialListId, loadingIndicatorId) {
+export function loadLessonContent(
+  lesson,
+  videoFrameId,
+  descriptionId,
+  materialListId,
+  loadingIndicatorId
+) {
   const videoFrame = document.getElementById(videoFrameId);
   const loadingIndicator = document.getElementById(loadingIndicatorId);
 
@@ -30,7 +36,6 @@ export function loadLessonContent(lesson, videoFrameId, descriptionId, materialL
   };
 }
 
-
 function initYouTubePlayer(videoUrl) {
   const videoId = extractVideoId(videoUrl);
 
@@ -44,12 +49,14 @@ function initYouTubePlayer(videoUrl) {
   });
 }
 
-
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     startTime = Date.now();
-    watchInterval = setInterval(checkWatchTime, 1000); 
-  } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+    watchInterval = setInterval(checkWatchTime, 1000);
+  } else if (
+    event.data === YT.PlayerState.PAUSED ||
+    event.data === YT.PlayerState.ENDED
+  ) {
     clearInterval(watchInterval);
     if (startTime) {
       const elapsed = (Date.now() - startTime) / 1000;
@@ -59,13 +66,10 @@ function onPlayerStateChange(event) {
   }
 }
 function updateLessonStatus(courseId, lessonId, status) {
-  
   const lessonStatus = JSON.parse(localStorage.getItem("lessonStatus") || "{}");
 
-  
   const lessonKey = `${courseId}-${lessonId}`;
 
-  
   lessonStatus[lessonKey] = status;
 
   // // Lưu lại trạng thái mới vào localStorage
@@ -81,53 +85,55 @@ function checkWatchTime() {
   }
 }
 
-
 function unlockNextLesson() {
   const currentLessonKey = localStorage.getItem("selectedLessonKey");
   if (!currentLessonKey) return;
 
   const [courseId, lessonId] = currentLessonKey.split("-").map(Number);
 
-  fetchCourses().then(courses => {
-    const course = courses.find(c => c.id === courseId);
+  fetchCourses().then((courses) => {
+    const course = courses.find((c) => c.id === courseId);
     if (!course) return;
 
     const lessons = course.lessons;
     const lastLessonId = lessons[lessons.length - 1].id;
 
     let nextLessonKey;
-    let nextLessonId;  
+    let nextLessonId;
     if (lessonId === lastLessonId) {
-      const nextCourse = courses.find(c => c.id === courseId + 1);
+      const nextCourse = courses.find((c) => c.id === courseId + 1);
       if (nextCourse) {
-        nextLessonId = 1;  
+        nextLessonId = 1;
         nextLessonKey = `${nextCourse.id}-1`;
       }
     } else {
-      nextLessonId = lessonId + 1; 
+      nextLessonId = lessonId + 1;
       nextLessonKey = `${courseId}-${nextLessonId}`;
     }
 
     if (!nextLessonKey) return;
 
-    const unlockedLessons = JSON.parse(localStorage.getItem("unlockedLessons") || "[]");
+    const unlockedLessons = JSON.parse(
+      localStorage.getItem("unlockedLessons") || "[]"
+    );
     if (!unlockedLessons.includes(nextLessonKey)) {
       unlockedLessons.push(nextLessonKey);
       localStorage.setItem("unlockedLessons", JSON.stringify(unlockedLessons));
       showNotification("Bài học tiếp theo đã được mở!");
 
-      updateLessonStatus(courseId, nextLessonId, true);  // Sử dụng nextLessonId ở đây
+      updateLessonStatus(courseId, nextLessonId, true);
+
+      // Gọi hàm updateSidebarAfterUnlock để cập nhật giao diện
+      updateSidebarAfterUnlock(nextLessonKey, courseId);
     }
   });
 }
 
-
 function fetchCourses() {
-  return fetch('./data/json/course.json')
-    .then(response => response.json())
-    .then(data => data.courses);
+  return fetch("./data/json/course.json")
+    .then((response) => response.json())
+    .then((data) => data.courses);
 }
-
 
 function showNotification(message) {
   const notification = document.createElement("div");
@@ -149,7 +155,6 @@ function showNotification(message) {
     document.body.removeChild(notification);
   }, 3000);
 }
-
 
 function extractVideoId(url) {
   const urlParams = new URL(url).searchParams;
