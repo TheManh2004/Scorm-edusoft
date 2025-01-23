@@ -1,6 +1,6 @@
 export function initializeSidebar(data, courseListId, lessonCallback) {
   if (!localStorage.getItem("unlockedLessons")) {
-    localStorage.setItem("unlockedLessons", JSON.stringify(["1-1"])); // Mở khóa bài học đầu tiên
+    localStorage.setItem("unlockedLessons", JSON.stringify(["1-1"])); 
   }
 
   const courseList = document.getElementById(courseListId);
@@ -36,7 +36,6 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
     courseItem.appendChild(lessonCount);
 
     const lessonList = document.createElement("ul");
-
     lessonList.style.height = "0";
     lessonList.style.transition = "height 0.3s ease-out, padding 0.3s ease-out";
     lessonList.style.overflow = "hidden";
@@ -46,6 +45,12 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
       lessonItem.textContent = lesson.title;
       lessonItem.dataset.lessonId = lesson.id;
 
+      const lockIcon = document.createElement("i");
+        lockIcon.className = "fa fa-lock"; 
+        lockIcon.style.marginLeft = "5px";
+        lockIcon.style.color = "#b3b3b3"; 
+
+
       const lessonKey = `${course.id}-${lesson.id}`;
 
       if (unlockedLessons.includes(lessonKey)) {
@@ -54,6 +59,7 @@ export function initializeSidebar(data, courseListId, lessonCallback) {
       } else {
         lessonItem.style.pointerEvents = "none";
         lessonItem.style.color = "#6e6e6e";
+        lessonItem.appendChild(lockIcon); 
       }
 
       if (selectedLessonKey === lessonKey) {
@@ -124,6 +130,9 @@ export function updateSidebarAfterUnlock(nextLessonKey, courseId) {
       if (lessonKey === nextLessonKey) {
         lessonItem.style.pointerEvents = "auto";
         lessonItem.style.color = "#000";
+
+        const lockIcon = lessonItem.querySelector("i");
+        if (lockIcon) lockIcon.remove(); 
       }
     });
   });
