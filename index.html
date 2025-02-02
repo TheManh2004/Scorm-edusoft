@@ -1,48 +1,120 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCORM E-learning</title>
-  <link rel="stylesheet" href="./data/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/antd@4.19.4/dist/antd.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCORM E-learning</title>
+    <!-- <link rel="stylesheet" href="./data/css/style.css"> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/antd@4.19.4/dist/antd.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-  <link rel="icon" href="data:," />
-</head>
-<body>
-  <div class="flex w-full h-screen">
-    <aside class="sidebar">
-      <div class="px-4 py-2">
-      <h2 class="">Kiến Thức Nhập Môn IT</h2>
-      <div class="w-full bg-gray-200 rounded-full h-2.5 ">
-        <div class="h-2.5 rounded-full bg-sky-600" style="width: 0%;"></div>
+    <link rel="icon" href="data:," />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .checkmark-list .about__container p::before {
+        content: "✔";
+        color: green;
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container bg-blue-100 flex flex-col gap-4 leading-9 h-max w-full"
+    >
+      <div
+        class="grid grid-cols-2 gap-4"
+        style="grid-template-columns: 7fr 3fr"
+      >
+        <div class="p-5 ml-8">
+          <div>
+            <img
+              class="w-32 pb-4"
+              src="https://edusoft.vn/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.9b1832b8.png&w=256&q=75"
+              alt="logo"
+            />
+
+            <div class="leading-9">
+              <h1 class="text-3xl font-sans">Kiến Thức Nhập Môn IT</h1>
+              <a class="text-white" href="dashboard-client.html">
+                <button
+                  class="bg-blue-600 text-white px-6 py-2 rounded-md mt-4 font-medium hover:bg-blue-400"
+                >
+                  Truy cập miễn phí
+                </button></a
+              >
+              <p class="mt-4">
+                <span class="font-bold">405,302</span> thường xuyên truy cập
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          class="w-auto h-72 object-cover"
+          src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/images/1a4589dccee10648821b7ea23e5fca9a.png?auto=format%2Ccompress&dpr=2&q=80"
+          alt=""
+        />
       </div>
-      <h3 class="text-blue-500 mt-3">Tiến độ : <span class="font-bold">0%</span></h3>
+      <div
+        class="bg-white shadow-md rounded-lg mx-14 absolute top-64 p-5 grid grid-cols-4 gap-6"
+      >
+        <div class="text-center">
+          <a href="#"><h3 class="text-lg font-bold">5 modules</h3></a>
+          <p class="text-gray-500 text-sm">
+            Đạt được cái nhìn sâu sắc về một chủ đề và tìm hiểu các nguyên tắc
+            cơ bản.
+          </p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold">4.7 <span>⭐</span></h3>
+          <p class="text-gray-500 text-sm">(3,213 reviews)</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold">8 giờ để hoàn thành</h3>
+          <p class="text-gray-500 text-sm">3 tuần và 2 giờ mỗi tuần</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold">Lịch trình linh hoạt</h3>
+          <p class="text-gray-500 text-sm">Học theo tốc độ của riêng bạn</p>
+        </div>
+      </div>
     </div>
-      <ul id="course-list"></ul>
-    </aside>
-    <main class="content">
-      <div class="menu">
-        <button id="video-tab">Video</button>
-        <button id="material-tab">Tài liệu</button>
-        <button>Bài tập</button>
+    <div class="mx-auto px-16" style="margin-top: 10%">
+      <div>
+        <div class="flex gap-12 text-xl">
+          <a
+            href="#about-container"
+            class="text-lg text-black font-medium py-2 px-4 rounded-md transition duration-300 hover:bg-blue-200"
+            >About</a
+          >
+          <a
+            href="#module-container"
+            class="text-lg text-black font-medium py-2 px-4 rounded-md transition duration-300 hover:bg-blue-200"
+            >Module</a
+          >
+        </div>
+        <hr class="mt-2 border-gray-300" />
       </div>
-      <div id="video-section" >
-        <div id="loading-indicator" class="spinner" style="display: none;"></div>
-        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
-        <div id="video-description"></div>
-      </div>
-      <div id="material-section" style="display: none;">
-        <ul id="material-list"></ul>
-      </div>
-      
-    </main>
-  </div>
-  <script type="module" src="./data/components/Main.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-</body>
+    </div>
+    <div id="about-container"></div>
+    <div id="module-container"></div>
+    <script src="./data/components/fetchDesc.js"></script>
+  </body>
 </html>
