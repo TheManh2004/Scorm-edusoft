@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./components/fetchModule.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="mx-auto px-16" id="module" style="margin-top: 20%">
-        <h3 class="text-xl font-bold mb-4">Module</h3>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="space-y-3">
-            <p>Module 1: Giới thiệu về IT.</p>
-            <p>Module 2: Kiến thức cơ bản về lập trình.</p>
-          </div>
-          <div class="space-y-3">
-            <p>Module 3: Cấu trúc dữ liệu & thuật toán.</p>
-            <p>Module 4: Dự án thực tế.</p>
-          </div>
-        </div>
-      </div>
+<body >
+  <div class="mx-auto px-16 checkmark-list pb-5" id="module" style="margin-top: 5%">
+    <div class=" border border-gray-300 mx-auto mt-10 p-5 bg-white shadow-lg rounded-lg">
+        <h3 class="text-2xl font-bold mb-4">Danh sách Module</h3>
+        <div id="module-list" class="space-y-4"></div>
+    </div>
+  </div>
 </body>
 </html>
