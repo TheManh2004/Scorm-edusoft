@@ -4,7 +4,7 @@ import { loadLessonContent } from './lesson.js';
 import { setupTabs } from './tabs.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const url = '/data/json/course.json';
+  const url = '../json/course.json';
 
   fetchData(url, data => {
     initializeSidebar(data, 'course-list', lesson => {
