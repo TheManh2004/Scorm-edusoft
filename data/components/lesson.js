@@ -123,7 +123,7 @@ function unlockNextLesson() {
 
       updateLessonStatus(courseId, nextLessonId, true);
 
-      // Gọi hàm updateSidebarAfterUnlock để cập nhật giao diện
+      
       updateSidebarAfterUnlock(nextLessonKey, courseId);
     }
   });
