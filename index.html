@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SCORM E-learning</title>
-    <!-- <link rel="stylesheet" href="./data/css/style.css"> -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
@@ -13,11 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/antd@4.19.4/dist/antd.min.css"
-    />
+    <link rel="stylesheet" href="./styles/antd.min.css" />
+    <script src="./js/antd.min.js" crossorigin="use-credentials"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./libs/react.production.min.js"></script>
+    <script src="./libs/react-dom.production.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -115,7 +114,15 @@
     </div>
     <div id="about-container"></div>
     <div id="module-container"></div>
-    <script src="./data/components/fetchDesc.js"></script>
-    <script src="./data/components/fetchModule.js"></script>
+
+    <script 
+    
+      src="./data/components/fetchDescription.js"
+      crossorigin="use-credentials"
+    ></script>
+    <script
+      src="./data/components/fetchModule.js"
+      crossorigin="use-credentials"
+    ></script>
   </body>
 </html>
