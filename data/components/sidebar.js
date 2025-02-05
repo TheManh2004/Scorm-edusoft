@@ -1,139 +1,76 @@
-export function initializeSidebar(data, courseListId, lessonCallback) {
+export function initializeSidebar(sessions, courseListId, lessonCallback) {
   if (!localStorage.getItem("unlockedLessons")) {
-    localStorage.setItem("unlockedLessons", JSON.stringify(["1-1"])); 
+      localStorage.setItem("unlockedLessons", JSON.stringify(["1-1-1"])); 
   }
 
   const courseList = document.getElementById(courseListId);
-  const selectedLessonKey = localStorage.getItem("selectedLessonKey");
-  const unlockedLessons = JSON.parse(
-    localStorage.getItem("unlockedLessons") || "[]"
-  );
+  const unlockedLessons = JSON.parse(localStorage.getItem("unlockedLessons") || "[]");
 
   courseList.innerHTML = "";
 
-  data.courses.forEach((course) => {
-    const courseItem = document.createElement("li");
-    courseItem.dataset.courseId = course.id;
+  sessions.forEach((session) => {
+      const sessionItem = document.createElement("li");
+      sessionItem.textContent = session.title;
+      sessionItem.style.fontWeight = "bold";
+      sessionItem.style.marginTop = "10px";
 
-    const arrow = document.createElement("span");
-    arrow.textContent = "▶";
-    arrow.style.cursor = "pointer";
-    arrow.style.marginLeft = "10px";
+      const topicList = document.createElement("ul");
+      topicList.style.marginLeft = "15px";
 
-    const courseTitle = document.createElement("span");
-    courseTitle.textContent = course.title;
-    courseTitle.style.fontWeight = "bold";
-    courseTitle.style.marginLeft = "10px";
+      session.topics.forEach((topic) => {
+          const topicItem = document.createElement("li");
+          topicItem.textContent = topic.title;
 
-    const lessonCount = document.createElement("span");
-    lessonCount.textContent = `(${course.lessons.length} bài học)`;
-    lessonCount.style.fontSize = "12px";
-    lessonCount.style.color = "#666";
-    lessonCount.style.marginLeft = "10px";
+          const lessonList = document.createElement("ul");
+          lessonList.style.marginLeft = "15px";
 
-    courseItem.appendChild(arrow);
-    courseItem.appendChild(courseTitle);
-    courseItem.appendChild(lessonCount);
+          topic.lessons.forEach((lesson) => {
+              const lessonItem = document.createElement("li");
+              lessonItem.textContent = lesson.title;
+              lessonItem.dataset.lessonKey = `${session.id}-${topic.id}-${lesson.id}`;
 
-    const lessonList = document.createElement("ul");
-    lessonList.style.height = "0";
-    lessonList.style.transition = "height 0.3s ease-out, padding 0.3s ease-out";
-    lessonList.style.overflow = "hidden";
+              if (unlockedLessons.includes(lessonItem.dataset.lessonKey)) {
+                  lessonItem.style.pointerEvents = "auto";
+                  lessonItem.style.color = "#000";
+              } else {
+                  lessonItem.style.pointerEvents = "none";
+                  lessonItem.style.color = "#6e6e6e";
+                  const lockIcon = document.createElement("i");
+                  lockIcon.className = "fa fa-lock";
+                  lockIcon.style.marginLeft = "5px";
+                  lockIcon.style.color = "#b3b3b3";
+                  lessonItem.appendChild(lockIcon);
+              }
 
-    course.lessons.forEach((lesson) => {
-      const lessonItem = document.createElement("li");
-      lessonItem.textContent = lesson.title;
-      lessonItem.dataset.lessonId = lesson.id;
+              lessonItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedLessonKey", lessonItem.dataset.lessonKey);
+                  lessonCallback(lesson);
+              });
 
-      const lockIcon = document.createElement("i");
-        lockIcon.className = "fa fa-lock"; 
-        lockIcon.style.marginLeft = "5px";
-        lockIcon.style.color = "#b3b3b3"; 
-
-
-      const lessonKey = `${course.id}-${lesson.id}`;
-
-      if (unlockedLessons.includes(lessonKey)) {
-        lessonItem.style.pointerEvents = "auto";
-        lessonItem.style.color = "#000";
-      } else {
-        lessonItem.style.pointerEvents = "none";
-        lessonItem.style.color = "#6e6e6e";
-        lessonItem.appendChild(lockIcon); 
-      }
-
-      if (selectedLessonKey === lessonKey) {
-        lessonItem.classList.add("active");
-        lessonCallback(lesson);
-
-        lessonList.style.height = "auto";
-        lessonList.style.overflow = "visible";
-        lessonList.style.padding = "5px";
-        arrow.textContent = "▼";
-      }
-
-      lessonItem.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-        localStorage.setItem("selectedLessonKey", lessonKey);
-
-        document
-          .querySelectorAll(`#${courseListId} li ul li`)
-          .forEach((item) => {
-            item.classList.remove("active");
+              lessonList.appendChild(lessonItem);
           });
 
-        lessonItem.classList.add("active");
-        lessonCallback(lesson);
+          topicItem.appendChild(lessonList);
+          topicList.appendChild(topicItem);
       });
 
-      lessonList.appendChild(lessonItem);
-    });
-
-    const toggleLessonList = () => {
-      const isExpanded = lessonList.style.height === "auto";
-
-      if (isExpanded) {
-        lessonList.style.height = "0";
-        lessonList.style.overflow = "hidden";
-        lessonList.style.padding = "0";
-        arrow.textContent = "▶";
-      } else {
-        lessonList.style.height = "auto";
-        lessonList.style.overflow = "visible";
-        lessonList.style.padding = "5px";
-        arrow.textContent = "▼";
-      }
-    };
-
-    courseItem.addEventListener("click", toggleLessonList);
-    arrow.addEventListener("click", (event) => {
-      event.stopPropagation();
-      toggleLessonList();
-    });
-
-    courseItem.appendChild(lessonList);
-    courseList.appendChild(courseItem);
+      sessionItem.appendChild(topicList);
+      courseList.appendChild(sessionItem);
   });
 }
 
-export function updateSidebarAfterUnlock(nextLessonKey, courseId) {
-  const courseListId = "course-list";
-  const courseList = document.getElementById(courseListId);
+export function updateSidebarAfterUnlock(nextLessonKey) {
+  const unlockedLessons = JSON.parse(localStorage.getItem("unlockedLessons") || "[]");
+  if (!unlockedLessons.includes(nextLessonKey)) {
+      unlockedLessons.push(nextLessonKey);
+      localStorage.setItem("unlockedLessons", JSON.stringify(unlockedLessons));
+  }
 
-  const courseItems = courseList.querySelectorAll("li");
-  courseItems.forEach((courseItem) => {
-    const lessons = courseItem.querySelectorAll("ul li");
-    lessons.forEach((lessonItem) => {
-      const lessonKey =
-        courseItem.dataset.courseId + "-" + lessonItem.dataset.lessonId;
-      if (lessonKey === nextLessonKey) {
-        lessonItem.style.pointerEvents = "auto";
-        lessonItem.style.color = "#000";
-
-        const lockIcon = lessonItem.querySelector("i");
-        if (lockIcon) lockIcon.remove(); 
-      }
-    });
-  });
+  const lessonItem = document.querySelector(`[data-lesson-key="${nextLessonKey}"]`);
+  if (lessonItem) {
+      lessonItem.style.pointerEvents = "auto";
+      lessonItem.style.color = "#000";
+      const lockIcon = lessonItem.querySelector("i");
+      if (lockIcon) lockIcon.remove(); 
+  }
 }

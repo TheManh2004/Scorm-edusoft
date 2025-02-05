@@ -1,149 +1,200 @@
 {
-    "courses": [
+  "sessions": [
       {
-        "id": 1,
-        "title": "Khái niệm kỹ thuật cần biết",
-        "lessons": [
-          {
-            "id": 1,
-            "title": "1. Mô hình Client - Server là gì?",
-            "video": {
-              "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1",
-              "description": "Mô hình truyền tải dữ liệu | Link tham khảo: [Fullstack.edu.vn](https://fullstack.edu.vn)"
-            },
-            "materials": [
+          "id": 1,
+          "title": "Buổi 1 - Nhập môn Công nghệ Thông tin",
+          "topics": [
               {
-                "name": "Tài liệu bài học 1",
-                "url": "documents/baihoc1.pdf"
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "title": "2. Domain là gì? Tên miền là gì?",
-            "video": {
-              "url": "https://www.youtube.com/embed/R6plN3FvzFY?enablejsapi=1",
-              "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
-            },
-            "materials": [
+                  "id": 1,
+                  "title": "Khái niệm kỹ thuật cần biết",
+                  "lessons": [
+                      {
+                          "id": 1,
+                          "title": "1. Mô hình Client - Server là gì?",
+                          "video": {
+                              "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1&modestbranding=1&rel=0",
+                              "description": "Mô hình truyền tải dữ liệu | Link tham khảo: [Fullstack.edu.vn](https://fullstack.edu.vn)"
+                          },
+                          "materials": [
+                              {
+                                  "name": "Tài liệu bài học 1",
+                                  "url": "documents/baihoc1.pdf"
+                              }
+                          ]
+                      },
+                      {
+                          "id": 2,
+                          "title": "2. Domain là gì? Tên miền là gì?",
+                          "video": {
+                              "url": "https://www.youtube.com/embed/R6plN3FvzFY?enablejsapi=1&modestbranding=1&rel=0",
+                              "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+                          },
+                          "materials": [
+                              {
+                                  "name": "Tài liệu bài học 2",
+                                  "url": "documents/baihoc2.pdf"
+                              }
+                          ]
+                      },
+                      {
+                        "id": 3,
+                        "title": "3. Học IT cần tố chất gì?",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/W0vEUmyvthQ?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 2",
+                                "url": "documents/baihoc2.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "title": "3. Học IT cần tố chất gì?",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/W0vEUmyvthQ?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 2",
+                                "url": "documents/baihoc2.pdf"
+                            }
+                        ]
+                    }
+                  ]
+              },
               {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          }
-        ]
+                "id": 2,
+                "title": "Những bản năng cần biết",
+                "lessons": [
+                    {
+                        "id": 1,
+                        "title": "1. Mô hình Client - Server là gì?",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Mô hình truyền tải dữ liệu | Link tham khảo: [Fullstack.edu.vn](https://fullstack.edu.vn)"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 1",
+                                "url": "documents/baihoc1.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "title": "2. Domain là gì? Tên miền là gì?",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/R6plN3FvzFY?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 2",
+                                "url": "documents/baihoc2.pdf"
+                            }
+                        ]
+                    },
+                    {
+                      "id": 3,
+                      "title": "3. Học IT cần tố chất gì?",
+                      "video": {
+                          "url": "https://www.youtube.com/embed/W0vEUmyvthQ?enablejsapi=1&modestbranding=1&rel=0",
+                          "description": "Giới thiệu về Domain | Link tham khảo: [Domain Guide](https://domain.com)"
+                      },
+                      "materials": [
+                          {
+                              "name": "Tài liệu bài học 2",
+                              "url": "documents/baihoc2.pdf"
+                          }
+                      ]
+                  }
+                ]
+            }
+          ]
       },
       {
-        "id": 2,
-        "title": "Môi trường, con người IT",
-        "lessons": [
-          {
-            "id": 1,
-            "title": "3. Mua áo F8 | Đăng ký học Offline",
-            "video": {
-              "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1",
-              "description": "Mua áo"
-            },
-            "materials": [
+          "id": 2,
+          "title": "Buổi 2 - Môi trường và nghề nghiệp IT",
+          "topics": [
               {
-                "name": "Tài liệu bài học 1",
-                "url": "documents/baihoc1.pdf"
+                  "id": 1,
+                  "title": "Môi trường, con người IT",
+                  "lessons": [
+                      {
+                          "id": 1,
+                          "title": "3. Mua áo F8 | Đăng ký học Offline",
+                          "video": {
+                              "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1&modestbranding=1&rel=0",
+                              "description": "Mua áo"
+                          },
+                          "materials": [
+                              {
+                                  "name": "Tài liệu bài học 1",
+                                  "url": "documents/baihoc1.pdf"
+                              }
+                          ]
+                      },
+                      {
+                          "id": 2,
+                          "title": "4. Học IT cần tố chất gì?",
+                          "video": {
+                              "url": "https://www.youtube.com/embed/zwsPND378OQ?enablejsapi=1&modestbranding=1&rel=0",
+                              "description": "Học IT"
+                          },
+                          "materials": [
+                              {
+                                  "name": "Tài liệu bài học 2",
+                                  "url": "documents/baihoc2.pdf"
+                              }
+                          ]
+                      }
+                  ]
               }
-            ]
-          },
-          {
-            "id": 2,
-            "title": "4. Học IT cần tố chất gì? Góc nhìn khác từ chuyên gia định hướng giáo dục",
-            "video": {
-              "url": "https://www.youtube.com/embed/zwsPND378OQ?enablejsapi=1",
-              "description": "Học IT"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "title": "5. Học IT không cần gì? Góc nhìn khác từ chuyên gia định hướng giáo dục",
-            "video": {
-              "url": "https://www.youtube.com/embed/7BJiPyN4zZ0?enablejsapi=1",
-              "description": "Học IT"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          }
-        ]
+          ]
       },
       {
         "id": 3,
-        "title": "Phương pháp , định hướng",
-        "lessons": [
-          {
-            "id": 1,
-            "title": "6. Phương pháp học lập trình của Admin F8",
-            "video": {
-              "url": "https://www.youtube.com/embed/LYnrFSGLCl8?enablejsapi=1",
-              "description": "Mua áo"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 1",
-                "url": "documents/baihoc1.pdf"
-              }
-            ]
-          },
-          {
-            "id": 2,
-            "title": "7. Làm sao để có thu nhập cao và đi xa hơn trong ngành IT",
-            "video": {
-              "url": "https://www.youtube.com/embed/LYnrFSGLCl8?enablejsapi=1",
-              "description": "Học IT"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          },
-          {
-            "id": 3,
-            "title": "8. 8 lời khuyên giúp học lập trình tại F8 hiệu quả hơn!",
-            "video": {
-              "url": "https://www.youtube.com/embed/JG0pdfdKjgQ?enablejsapi=1",
-              "description": "Học IT"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          },
-          {
-            "id": 4,
-            "title": "9. Tại sao nên học trên website này hơn là học trên Youtube?",
-            "video": {
-              "url": "https://www.youtube.com/embed/AzmdwZ6e_aM?enablejsapi=1",
-              "description": "Học IT"
-            },
-            "materials": [
-              {
-                "name": "Tài liệu bài học 2",
-                "url": "documents/baihoc2.pdf"
-              }
-            ]
-          }
+        "title": "Buổi 3 - Môi trường và nghề nghiệp IT",
+        "topics": [
+            {
+                "id": 1,
+                "title": "Môi trường, con người IT",
+                "lessons": [
+                    {
+                        "id": 1,
+                        "title": "3. Mua áo F8 | Đăng ký học Offline",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/M62l1xA5Eu8?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Mua áo"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 1",
+                                "url": "documents/baihoc1.pdf"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "title": "4. Học IT cần tố chất gì?",
+                        "video": {
+                            "url": "https://www.youtube.com/embed/zwsPND378OQ?enablejsapi=1&modestbranding=1&rel=0",
+                            "description": "Học IT"
+                        },
+                        "materials": [
+                            {
+                                "name": "Tài liệu bài học 2",
+                                "url": "documents/baihoc2.pdf"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
-  
+    }
+  ]
+}

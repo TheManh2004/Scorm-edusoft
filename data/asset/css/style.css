@@ -29,6 +29,8 @@ body {
   overflow-y: auto;
 }
 .content {
+  height: 100vh;
+  overflow-y: auto;
   width: 80%;
   padding: 20px;
 }
@@ -150,6 +152,12 @@ body {
   height: 100%;
   display: none;
 }
+.lesson-item.active {
+  background-color: #d3e4ff !important; /* Nền xanh nhẹ */
+  border-right: 3px solid #1c94a9; /* Viền phải xanh */
+  color: #003366 !important; /* Màu chữ nổi bật */
+}
+
 
 @keyframes spin {
   to {

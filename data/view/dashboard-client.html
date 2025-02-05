@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCORM E-learning</title>
-  <link rel="stylesheet" href="../asset/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="../../styles/antd.min.css">
-  <script src="../../libs/react.production.min.js"></script>
-  <script src="../../libs/react-dom.production.min.js"></script>
-  <script src="../../js/antd.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCORM E-learning</title>
+    <link rel="stylesheet" href="../asset/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../styles/antd.min.css" />
+    <script src="../../libs/react.production.min.js"></script>
+    <script src="../../libs/react-dom.production.min.js"></script>
+    <script src="../../js/antd.min.js"></script>
+    <script src="../../js/index.umd.min.js"></script>
 
-  <!-- <link rel="icon" href="data:," /> -->
-</head>
-<body>
-  <div class="flex w-full h-screen">
-    <aside class="sidebar">
-      <div class="px-4 py-2">
-      <h2 class="">Kiến Thức Nhập Môn IT</h2>
-      <div class="w-full bg-gray-200 rounded-full h-2.5 ">
-        <div class="h-2.5 rounded-full bg-sky-600" style="width: 0%;"></div>
-      </div>
-      <h3 class="text-blue-500 mt-3">Tiến độ : <span class="font-bold">0%</span></h3>
-    </div>
-      <ul id="course-list"></ul>
-    </aside>
-    <main class="content">
-      <div class="menu">
-        <button id="video-tab">Video</button>
-        <button id="material-tab">Tài liệu</button>
+    <!-- <link rel="icon" href="data:," /> -->
+  </head>
+  <body>
+    <div class="flex w-full h-screen">
+      <aside class="sidebar">
+        <div class="px-4 py-2">
+          <h2 class="">Kiến Thức Nhập Môn IT</h2>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div class="h-2.5 rounded-full bg-sky-600" style="width: 0%"></div>
+          </div>
+          <h3 class="text-blue-500 mt-3">
+            Tiến độ : <span class="font-bold">0%</span>
+          </h3>
+        </div>
+        <ul id="course-list"></ul>
+      </aside>
+      <main class="content">
+        <div class="menu">
+          <button id="video-tab">Video</button>
+          <button id="material-tab">Tài liệu</button>
+
+          <button>Bài tập</button>
+        </div>
+        <div id="video-section">
+          <div
+            id="loading-indicator"
+            class="spinner"
+            style="display: none"
+          ></div>
+          <iframe
+            id="video-frame"
+            src=""
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+          <div id="video-description"></div>
+          
+        </div>
+        <div id="material-section" style="display: none">
+          <ul id="material-list"></ul>
+        </div>
         
-        <button>Bài tập</button>
-      </div>
-      <div id="video-section" >
-        <div id="loading-indicator" class="spinner" style="display: none;"></div>
-        <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
-        <div id="video-description"></div>
-      </div>
-      <div id="material-section" style="display: none;">
-        <ul id="material-list"></ul>
-      </div>
-      
-    </main>
-  </div>
-  <script type="module" src="../components/Main.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-</body>
+      </main>
+    </div>
+    <script type="module" src="../components/Main.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </body>
 </html>
