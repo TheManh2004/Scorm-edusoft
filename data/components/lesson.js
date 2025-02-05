@@ -77,7 +77,7 @@ function unlockNextLesson() {
       let topicId = Number(keys[1]);
       let lessonId = Number(keys[2]);
 
-      fetch('/data/json/course.json')
+      fetch('../json/course.json')
           .then(response => response.json())
           .then(data => {
               try {
