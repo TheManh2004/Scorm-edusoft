@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -16,67 +16,17 @@
     <script src="../../libs/react-dom.production.min.js"></script>
     <link rel="stylesheet" href="../../styles/antd.min.css" />
     <script src="../../js/antd.min.js"></script>
+    <script src="../../js/index.umd.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script src="../../libs/babel.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="text/babel">
-        const { useState } = React;
-        const { Layout, Menu } = antd;
-        const { Sider, Content, Header } = Layout;
-    
-        const App = () => {
-          const [selectedKey, setSelectedKey] = useState("1");
-    
-          const contentData = {
-            "1": { title: "Module 1", description: "Nội dung Module 1" },
-            "2": { title: "Module 2", description: "Nội dung Module 2" },
-            "3": { title: "Grades", description: "Chi tiết về điểm số" },
-            "4": { title: "Notes", description: "Ghi chú của bạn" },
-          };
-    
-          return (
-            <Layout style={{ height: "100vh" }}>
-              <Sider width={200} theme="light">
-                <Menu
-                  mode="inline"
-                  defaultSelectedKeys={["1"]}
-                  onClick={(e) => setSelectedKey(e.key)}
-                  style={{ height: "100%", borderRight: 0 }}
-                >
-                  <Menu.SubMenu key="sub1" title="Course Material">
-                    <Menu.Item key="1">Module 1</Menu.Item>
-                    <Menu.Item key="2">Module 2</Menu.Item>
-                  </Menu.SubMenu>
-                  <Menu.Item key="3">Grades</Menu.Item>
-                  <Menu.Item key="4">Notes</Menu.Item>
-                </Menu>
-              </Sider>
-              <Layout style={{ padding: "24px" }}>
-                <Content style={{ background: "#fff", padding: "20px", marginRight: "250px" }}>
-                  <h2>{contentData[selectedKey].title}</h2>
-                  <a href="./dashboard-client.html">Get Started</a>
-                  <p>{contentData[selectedKey].description}</p>
-                </Content>
-                <Sider width={250} theme="light" style={{ position: "absolute", right: 0, top: 0, height: "100vh" }}>
-                  <div style={{ padding: "20px" }}>
-                    <h3>Nội dung thêm</h3>
-                    
-                    <p>Đây là phần dành cho nội dung thêm như ghi chú hoặc thông tin bổ sung.</p>
-                  </div>
-                </Sider>
-              </Layout>
-            </Layout>
-          );
-        };
-    
-        ReactDOM.render(<App />, document.getElementById("root"));
-      </script>
-</body>
+    <script type="text/babel" src="../components/overView.js"></script>
+  </body>
 </html>

@@ -4,13 +4,13 @@ import { loadLessonContent } from './lesson.js';
 import { setupTabs } from './tabs.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const url = '../json/course.json';
+    const url = '../json/course.json';
 
-  fetchData(url, data => {
-    initializeSidebar(data, 'course-list', lesson => {
-      loadLessonContent(lesson, 'video-frame', 'video-description', 'material-list', 'loading-indicator');
+    fetchData(url, data => {
+        initializeSidebar(data.sessions, 'course-list', lesson => {
+            loadLessonContent(lesson, 'video-frame', 'video-description', 'material-list', 'loading-indicator');
+        });
     });
-  });
 
-  setupTabs('video-tab', 'material-tab', 'video-section', 'material-section');
+    setupTabs('video-tab', 'material-tab', 'video-section', 'material-section');
 });
