@@ -130,7 +130,7 @@ function unlockNextLesson() {
 }
 
 function fetchCourses() {
-  return fetch("/data/json/course.json")
+  return fetch("./data/json/course.json")
     .then((response) => response.json())
     .then((data) => data.courses);
 }
