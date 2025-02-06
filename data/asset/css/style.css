@@ -1,12 +1,10 @@
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   /* font: inherit; */
   margin: 0;
   padding: 0;
 }
-
 
 .sidebar {
   width: 20%;
@@ -28,6 +26,7 @@ body {
   max-height: 600px;
   overflow-y: auto;
 }
+
 .content {
   height: 100vh;
   overflow-y: auto;
@@ -78,6 +77,40 @@ body {
 #video-description {
   margin-top: 10px;
 }
+.sub-menu {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sub-tab {
+  padding: 10px;
+  border: none;
+  background: transparent; /* Loại bỏ background */
+  cursor: pointer;
+  position: relative;
+  font-size: 14px;
+  color: #333; /* Màu chữ mặc định */
+}
+
+.sub-tab:hover {
+  color: #1c94a9; /* Màu chữ khi hover */
+}
+
+.sub-tab.active {
+  font-weight: bold;
+  color: #1c94a9; /* Màu chữ khi active */
+}
+
+.sub-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1c94a9; /* Gạch xanh bên dưới */
+}
 
 #material-list {
   list-style: none;
@@ -90,19 +123,17 @@ body {
 #course-list li {
   background-color: #e5e7eb;
   padding-top: 15px;
-  padding-bottom: 15px; 
-  
+  padding-bottom: 15px;
+
   position: relative;
 }
 #course-list li:hover {
   background-color: #dedede;
 }
 
-#course-list li ul{
-  
+#course-list li ul {
   padding-left: 0 !important;
   padding-right: 0 !important;
-  
 }
 #course-list li ul li {
   list-style: none;
@@ -119,7 +150,6 @@ body {
   background-color: #d3e4ff;
   color: #1c94a9 !important;
   border-right: 3px solid;
-
 }
 
 #video-section {
@@ -152,12 +182,6 @@ body {
   height: 100%;
   display: none;
 }
-.lesson-item.active {
-  background-color: #d3e4ff !important; /* Nền xanh nhẹ */
-  border-right: 3px solid #1c94a9; /* Viền phải xanh */
-  color: #003366 !important; /* Màu chữ nổi bật */
-}
-
 
 @keyframes spin {
   to {
@@ -169,6 +193,9 @@ body {
   color: #ccc;
 }
 .fa-lock {
-  font-size: 14px; 
-  margin-left: 5px; 
+  font-size: 14px;
+  margin-left: 5px;
+}
+.bg-sky-600 {
+  background-color: #0284c7 !important;
 }
