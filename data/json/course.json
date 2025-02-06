@@ -20,6 +20,11 @@
                                   "name": "Tài liệu bài học 1",
                                   "url": "documents/baihoc1.pdf"
                               }
+                          ],
+                          "lessonContent" : [
+                            {
+                                "content":"lorem"
+                            }
                           ]
                       },
                       {

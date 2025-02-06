@@ -42,7 +42,7 @@ const App = () => {
           mode="inline"
           selectedKeys={[selectedKey]}
           onClick={handleMenuClick}
-          style={{ height: "100%", borderRight: 0 }}
+          style={{ height: "100%", borderRight: 0}}
         >
           <Menu.SubMenu key="sub1" title="Course Material">
             {sessions.map((session) => (
@@ -65,6 +65,7 @@ const App = () => {
             background: "#fff",
             padding: "20px",
             marginRight: "250px",
+            borderRadius:"10px"
           }}
         >
           {selectedView === "session" ? (
@@ -108,11 +109,18 @@ const App = () => {
             height: "100vh",
           }}
         >
-          <div style={{ padding: "20px" }}>
+          <div style={{ padding: "20px" }} className="bg-blue-600 rounded-lg mt-6">
             <h3>Nội dung thêm</h3>
             <p>
               Đây là phần dành cho nội dung thêm như ghi chú hoặc thông tin bổ sung.
             </p>
+          </div>
+          <div style={{ padding: "20px" }} className="bg-blue-600 rounded-lg mt-6">
+            <h3>Nội dung thêm</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam explicabo tenetur laborum odio, unde error quas quaerat reprehenderit fugit, magni sed quisquam aut beatae et ut doloremque voluptatem recusandae. Maiores!
+        Tempore magnam inventore saepe qui, fuga distinctio odio dolore sed quisquam ut perspiciatis aliquid consequuntur laudantium quae porro placeat et consequatur labore dicta, soluta numquam alias. Distinctio a minus enim?
+        Dicta animi explicabo corrupti accusamus fugiat doloribus libero, quidem cupiditate rem, laborum illo, temporibus nobis eum aperiam! Commodi doloremque recusandae iure a culpa, molestias ipsa fugit ut error accusantium facilis.
+        Inventore asperiores culpa facere quae? Neque excepturi nesciunt velit et. Illum illo ipsum molestias dolorem deserunt ad mollitia tempore repellat labore harum perferendis architecto amet impedit quasi, fugit doloremque soluta.</p>
           </div>
         </Sider>
       </Layout>
