@@ -1,7 +1,7 @@
 export function initializeSidebar(sessions, courseListId, lessonCallback) {
-    if (!localStorage.getItem("unlockedLessons")) {
-      localStorage.setItem("unlockedLessons", JSON.stringify(["1-1-1"]));
-    }
+  if (!localStorage.getItem("unlockedLessons") || JSON.parse(localStorage.getItem("unlockedLessons")).length === 0) {
+    localStorage.setItem("unlockedLessons", JSON.stringify(["1-1-1"]));
+}
   
     const courseList = document.getElementById(courseListId);
     const unlockedLessons = JSON.parse(localStorage.getItem("unlockedLessons") || "[]");
