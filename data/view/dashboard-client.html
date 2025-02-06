@@ -42,25 +42,26 @@
       </aside>
       <main class="content">
         <div class="menu">
-          <button id="video-tab">Video</button>
-          <button id="material-tab">Tài liệu</button>
+          <button id="video-tab">Video bài giảng</button>
+          <button id="material-tab">Nội Dung</button>
 
-          <button>Bài tập</button>
         </div>
         <div id="video-section">
-          <div
-            id="loading-indicator"
-            class="spinner"
-            style="display: none"
-          ></div>
-          <iframe
-            id="video-frame"
-            src=""
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-          <div id="video-description"></div>
+          <div id="loading-indicator" class="spinner" style="display: none"></div>
+          <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
           
+        
+          
+          <div class="sub-menu">
+            <button id="description-tab" class="sub-tab active">Mô tả</button>
+            <button id="content-tab" class="sub-tab">Tài Liệu</button>
+            <button id="exercise-tab" class="sub-tab">Bài tập</button>
+          </div>
+        
+          
+          <div id="description-section" class="sub-content"><div id="video-description"></div></div>
+          <div id="content-section" class="sub-content" style="display: none;">Nội dung chính của bài học...</div>
+          <div id="exercise-section" class="sub-content" style="display: none;">Bài tập liên quan...</div>
         </div>
         <div id="material-section" style="display: none">
           <ul id="material-list"></ul>
