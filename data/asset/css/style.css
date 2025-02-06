@@ -122,14 +122,14 @@ body {
   margin: 5px 0;
 }
 #course-list li {
-  background-color: #e5e7eb;
+  background-color: #f4f4f4;
   padding-top: 15px;
   padding-bottom: 15px;
 
   position: relative;
 }
 #course-list li:hover {
-  background-color: #dedede;
+  background-color: #f4f4f4;
 }
 
 #course-list li ul {
@@ -144,11 +144,15 @@ body {
   font-weight: 500;
 }
 #course-list li ul li:hover {
-  background-color: #d3e4ff;
-  color: #003366;
+  /* background-color: #d3e4ff; */
+  color: #5d8dbd;
 }
-#course-list li ul li.active {
-  background-color: #d3e4ff;
+#course-list li ul li ul li:hover {
+  background-color: #e7effc;
+  color: #5d8dbd;
+}
+#course-list li ul li ul li.active {
+  background-color: #e7effc;
   color: #1c94a9 !important;
   border-right: 3px solid;
 }
