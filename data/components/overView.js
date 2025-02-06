@@ -6,12 +6,16 @@ const App = () => {
   const [selectedKey, setSelectedKey] = useState("1");
   const [selectedSession, setSelectedSession] = useState(null);
   const [sessions, setSessions] = useState([]);
+  const [modules, setModules] = useState([]);
   const [selectedView, setSelectedView] = useState("session"); // Trạng thái mới để xác định mục đang được chọn
 
   useEffect(() => {
     fetch('../json/course.json')  
       .then((response) => response.json())
-      .then((data) => setSessions(data.sessions)) // Lưu dữ liệu vào state
+      .then((data) => {
+        setSessions(data.sessions);
+        setModules(data.sessions); // Lưu danh sách module
+      })
       .catch((error) => console.error('Lỗi khi tải dữ liệu:', error));
   }, []);
 
@@ -27,8 +31,19 @@ const App = () => {
   };
 
   return (
-    <Layout style={{ height: "100vh" }}>
-      <Sider width={300} theme="light">
+    <Layout style={{ height: "max-content" }}>
+      <Sider
+  width={300}
+  theme="light"
+  style={{
+    position: "fixed", // Cố định
+    left: 0,
+    top: 0,
+    height: "100vh",
+    background: "#fff",
+    borderRight: "1px solid #ddd",
+  }}
+>
         <div className="p-5">
           <img
             className="w-32 pb-4"
@@ -44,11 +59,13 @@ const App = () => {
           onClick={handleMenuClick}
           style={{ height: "100%", borderRight: 0}}
         >
-          <Menu.SubMenu key="sub1" title="Course Material">
+          <Menu.SubMenu key="sub1" title="Course Material" style={{ maxHeight: "300px", overflowY: "auto",overflowX: "hidden" }}>
+            
             {sessions.map((session) => (
               <Menu.Item key={session.id}>
                 {session.title}
               </Menu.Item>
+              
             ))}
           </Menu.SubMenu>
           <Menu.Item key="4" className="hover:bg-gray-200 font-bold">
@@ -60,14 +77,15 @@ const App = () => {
         </Menu>
       </Sider>
       <Layout style={{ padding: "24px" }}>
-        <Content
-          style={{
-            background: "#fff",
-            padding: "20px",
-            marginRight: "250px",
-            borderRadius:"10px"
-          }}
-        >
+      <Content
+  style={{
+    background: "#fff",
+    padding: "20px",
+    marginLeft: "300px", // Dịch sang phải tránh bị Sider trái đè
+    marginRight: "250px", // Dịch sang trái tránh bị Sider phải đè
+    minHeight: "100vh",
+  }}
+>
           {selectedView === "session" ? (
             selectedSession ? (
               <div>
@@ -85,7 +103,26 @@ const App = () => {
                 <a href="./dashboard-client.html">Get Started</a>
               </div>
             ) : (
-              <p>Vui lòng chọn buổi học</p>
+              <div id="module-list">
+                <h2>Danh sách Module</h2>
+                {modules.map((session, index) => (
+                  <div key={session.id} className="border border-gray-300 rounded-lg p-4 bg-gray-50 cursor-pointer">
+                    <div className="flex justify-between items-center">
+                      <h4 className="text-lg font-semibold">Module {index + 1}: {session.title}</h4>
+                    </div>
+                    <div className="lesson-list mt-3 space-y-2">
+                      {session.topics.map((topic) => (
+                        <p key={topic.id} className="pl-4 text-gray-700 text-sm">• {topic.title}</p>
+                      ))}
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  
+                ))}
+              </div>
+              
             )
           ) : selectedView === "grades" ? (
             <div>
@@ -100,15 +137,18 @@ const App = () => {
           )}
         </Content>
         <Sider
-          width={250}
-          theme="light"
-          style={{
-            position: "absolute",
-            right: 0,
-            top: 0,
-            height: "100vh",
-          }}
-        >
+  width={250}
+  theme="light"
+  style={{
+    position: "fixed", // Cố định
+    right: 0,
+    top: 0,
+    height: "100vh",
+    background: "#fff",
+    borderLeft: "1px solid #ddd",
+    padding: "20px",
+  }}
+>
           <div style={{ padding: "20px" }} className="bg-blue-600 rounded-lg mt-6">
             <h3>Nội dung thêm</h3>
             <p>
@@ -118,9 +158,7 @@ const App = () => {
           <div style={{ padding: "20px" }} className="bg-blue-600 rounded-lg mt-6">
             <h3>Nội dung thêm</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam explicabo tenetur laborum odio, unde error quas quaerat reprehenderit fugit, magni sed quisquam aut beatae et ut doloremque voluptatem recusandae. Maiores!
-        Tempore magnam inventore saepe qui, fuga distinctio odio dolore sed quisquam ut perspiciatis aliquid consequuntur laudantium quae porro placeat et consequatur labore dicta, soluta numquam alias. Distinctio a minus enim?
-        Dicta animi explicabo corrupti accusamus fugiat doloribus libero, quidem cupiditate rem, laborum illo, temporibus nobis eum aperiam! Commodi doloremque recusandae iure a culpa, molestias ipsa fugit ut error accusantium facilis.
-        Inventore asperiores culpa facere quae? Neque excepturi nesciunt velit et. Illum illo ipsum molestias dolorem deserunt ad mollitia tempore repellat labore harum perferendis architecto amet impedit quasi, fugit doloremque soluta.</p>
+        Tempore magnam inventore saepe qui, fuga distinctio odio dolore sed quisquam ut perspiciatis aliquid consequuntur laudantium quae porro placeat et consequatur labore dicta, soluta numquam alias. Distinctio a minus enim?</p>
           </div>
         </Sider>
       </Layout>

@@ -16,7 +16,7 @@ export function initializeSidebar(sessions, courseListId, lessonCallback) {
       });
     });
   
-    updateProgress(unlockedCount, totalLessons); // Cập nhật tiến độ ban đầu
+    updateProgress(unlockedCount, totalLessons);
   
     sessions.forEach((session) => {
       const sessionItem = document.createElement("li");
@@ -86,6 +86,17 @@ export function initializeSidebar(sessions, courseListId, lessonCallback) {
           }
   
           lessonItem.addEventListener("click", () => {
+            // Xóa lớp 'active' cho tất cả các bài học khác
+            document
+              .querySelectorAll(`#${courseListId} li ul li`)
+              .forEach((item) => {
+                item.classList.remove("active");
+              });
+          
+            // Thêm lớp 'active' cho bài học hiện tại
+            lessonItem.classList.add("active");
+          
+            // Cập nhật dữ liệu vào localStorage và gọi callback
             localStorage.setItem("selectedLessonKey", lessonItem.dataset.lessonKey);
             lessonCallback(lesson);
           });
