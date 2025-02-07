@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchData(url, data => {
         initializeSidebar(data.sessions, 'course-list', lesson => {
-            loadLessonContent(lesson, 'video-frame', 'video-description', 'material-list', 'loading-indicator');
+            loadLessonContent(lesson, 'video-frame', 'video-description', 'material-list','content-list', 'loading-indicator');
         });
     });
 
-    setupTabs('video-tab', 'material-tab', 'video-section', 'material-section');
+    setupTabs('video-tab', 'content-tab', 'video-section', 'content-section');
 });

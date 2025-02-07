@@ -4,7 +4,8 @@ let startTime = 0;
 let watchInterval;
 let totalWatchTime = 0;
 
-export function loadLessonContent(lesson, videoFrameId, descriptionId, materialListId, loadingIndicatorId) {
+export function loadLessonContent(lesson, videoFrameId, descriptionId, materialListId,contentListId, loadingIndicatorId) {
+    
     const videoFrame = document.getElementById(videoFrameId);
     const loadingIndicator = document.getElementById(loadingIndicatorId);
 
@@ -13,6 +14,15 @@ export function loadLessonContent(lesson, videoFrameId, descriptionId, materialL
 
     videoFrame.src = lesson.video.url;
     document.getElementById(descriptionId).innerHTML = lesson.video.description;
+
+    const contentList = document.getElementById(contentListId);
+    contentList.innerHTML = "";
+
+    lesson.lessonContent.forEach((content) => {
+        const contentItem = document.createElement("li");
+        contentItem.innerHTML = `<p>${content.content}</p>`;
+        contentList.appendChild(contentItem);
+    });
 
     const materialList = document.getElementById(materialListId);
     materialList.innerHTML = "";

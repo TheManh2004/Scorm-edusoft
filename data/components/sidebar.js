@@ -1,4 +1,5 @@
 export function initializeSidebar(sessions, courseListId, lessonCallback) {
+  
   if (!localStorage.getItem("unlockedLessons") || JSON.parse(localStorage.getItem("unlockedLessons")).length === 0) {
     localStorage.setItem("unlockedLessons", JSON.stringify(["1-1-1"]));
 }
@@ -96,7 +97,7 @@ export function initializeSidebar(sessions, courseListId, lessonCallback) {
             // Thêm lớp 'active' cho bài học hiện tại
             lessonItem.classList.add("active");
           
-            // Cập nhật dữ liệu vào localStorage và gọi callback
+
             localStorage.setItem("selectedLessonKey", lessonItem.dataset.lessonKey);
             lessonCallback(lesson);
           });
@@ -155,7 +156,7 @@ export function initializeSidebar(sessions, courseListId, lessonCallback) {
     }
   
     const totalLessons = document.querySelectorAll('[data-lesson-key]').length;
-    updateProgress(unlockedLessons.length, totalLessons); // Cập nhật tiến độ sau khi mở khóa
+    updateProgress(unlockedLessons.length, totalLessons); 
   }
   function updateProgress(unlockedCount, totalLessons) {
     const progressBar = document.querySelector(".bg-sky-600");
