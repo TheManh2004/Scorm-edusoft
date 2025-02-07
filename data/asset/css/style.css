@@ -87,20 +87,20 @@ body {
 .sub-tab {
   padding: 10px;
   border: none;
-  background: transparent; /* Loại bỏ background */
+  background: transparent; 
   cursor: pointer;
   position: relative;
   font-size: 14px;
-  color: #333; /* Màu chữ mặc định */
+  color: #333; 
 }
 
 .sub-tab:hover {
-  color: #1c94a9; /* Màu chữ khi hover */
+  color: #1c94a9; 
 }
 
 .sub-tab.active {
   font-weight: bold;
-  color: #1c94a9; /* Màu chữ khi active */
+  color: #1c94a9; 
 }
 
 .sub-tab.active::after {
@@ -110,7 +110,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #1c94a9; /* Gạch xanh bên dưới */
+  background-color: #1c94a9; 
 }
 
 #material-list {
